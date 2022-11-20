@@ -7,11 +7,11 @@ use Elementor\Group_Control_Typography;
 
 class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 	public function get_name() {
-		return 'clweb-elementor-flipbox2';
+		return 'clweb-elementor-flipbox';
 	}
 
 	public function get_title() {
-		return __( 'CLWeb Elementor Flipbox', 'clweb-elementor-flipbox2' );
+		return __( 'CLWeb Elementor Flipbox', 'clweb-elementor-flipbox' );
 	}
 
 	public function get_icon() {
@@ -31,18 +31,18 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 	}
 
 	public function get_script_depends() {
-		wp_register_script('clweb-elementor-flipbox2-script', plugins_url('assets/js/clweb-elementor-flipbox2.js', __FILE__));
+		wp_register_script('clweb-elementor-flipbox-script', plugins_url('assets/js/clweb-elementor-flipbox.js', __FILE__));
 		
 		return [ 
-			'clweb-elementor-flipbox2-script' 
+			'clweb-elementor-flipbox-script' 
 		];
 	}
 
 	public function get_style_depends() {
-		wp_register_style( 'clweb-elementor-flipbox2-style', plugins_url( 'assets/css/clweb-elementor-flipbox2.css', __FILE__ ) );
+		wp_register_style( 'clweb-elementor-flipbox-style', plugins_url( 'assets/css/clweb-elementor-flipbox.css', __FILE__ ) );
 
 		return [
-			'clweb-elementor-flipbox2-style',
+			'clweb-elementor-flipbox-style',
 		];
 	}
 
@@ -50,25 +50,25 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->start_controls_section(
 			'section_type',
 			[
-				'label' => __( 'FlipBox Settings', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'FlipBox Settings', 'clweb-elementor-flipbox' ),
 			]
 		);
 
 		$this->add_control(
 			'clweb_flipbox_style',
 			[
-				'label' => esc_html__('Style', 'clweb-elementor-flipbox2'),
+				'label' => esc_html__('Style', 'clweb-elementor-flipbox'),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'flip-box-style',
 				'options' => [
-					'flip-box-style'      => esc_html__('Flip',  'clweb-elementor-flipbox2'),
-					'rotate-box-style'    => esc_html__('Rotate',  'clweb-elementor-flipbox2'),
-					'zoomin-box-style'    => esc_html__('Zoom In',  'clweb-elementor-flipbox2'),
-					'zoomout-box-style'   => esc_html__('Zoom Out',  'clweb-elementor-flipbox2'),
-					'side-right-style'    => esc_html__('Slide Right',  'clweb-elementor-flipbox2'),
-					'side-left-style'     => esc_html__('Slide Left',  'clweb-elementor-flipbox2'),
-					'to-top-style'        => esc_html__('Slide Up',  'clweb-elementor-flipbox2'),
-					'to-bottom-style'     => esc_html__('Slide Down',  'clweb-elementor-flipbox2'),
+					'flip-box-style'      => esc_html__('Flip',  'clweb-elementor-flipbox'),
+					'rotate-box-style'    => esc_html__('Rotate',  'clweb-elementor-flipbox'),
+					'zoomin-box-style'    => esc_html__('Zoom In',  'clweb-elementor-flipbox'),
+					'zoomout-box-style'   => esc_html__('Zoom Out',  'clweb-elementor-flipbox'),
+					'side-right-style'    => esc_html__('Slide Right',  'clweb-elementor-flipbox'),
+					'side-left-style'     => esc_html__('Slide Left',  'clweb-elementor-flipbox'),
+					'to-top-style'        => esc_html__('Slide Up',  'clweb-elementor-flipbox'),
+					'to-bottom-style'     => esc_html__('Slide Down',  'clweb-elementor-flipbox'),
 				],
 			]
 		);
@@ -77,16 +77,16 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->add_control(
     'clweb_flipbox_type',
 			[
-				'label' => __( 'Filp Box Orientation', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Filp Box Orientation', 'clweb-elementor-flipbox' ),
 				'type' => Controls_Manager::CHOOSE,
-				'default'   => __( 'vertical', 'clweb-elementor-flipbox2' ),
+				'default'   => __( 'vertical', 'clweb-elementor-flipbox' ),
 				'options' => [
 						'horizontal'    => [
-							'title' => __( 'Horizontal', 'clweb-elementor-flipbox2' ),
+							'title' => __( 'Horizontal', 'clweb-elementor-flipbox' ),
 							'icon' => 'eicon-spacer',
 						],
 						'vertical' => [
-							'title' => __( 'Vertical', 'clweb-elementor-flipbox2' ),
+							'title' => __( 'Vertical', 'clweb-elementor-flipbox' ),
 							'icon' => 'eicon-v-align-stretch',
 						]
 					],
@@ -99,9 +99,9 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->add_control(
 			'clweb_flipbox_type-min-height',
 			[
-				'label' => esc_html__( 'Min Height', 'clweb-elementor-flipbox2' ),
+				'label' => esc_html__( 'Min Height', 'clweb-elementor-flipbox' ),
 				'type' => Controls_Manager::TEXT,
-				'default' => '',
+				'default' => '500',
 				'description' => 'Unit in px',
 				'selectors' => [
 					'{{WRAPPER}} .clweb-flipbox__holder ' => 'height: {{VALUE}}px;',
@@ -112,7 +112,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->add_control(
 			'padding',
 			[
-				'label' => __( 'Padding', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Padding', 'clweb-elementor-flipbox' ),
 				'type' => 'dimensions',
 				'size_units' => [ 'px', 'em', '%' ],
 				'selectors' => [
@@ -133,7 +133,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->add_control(
 			'clweb_flipbox_border_color',
 			[
-				'label' => __( 'Color', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Color', 'clweb-elementor-flipbox' ),
 				'type' => 'color',
 				'selectors' => [
 					'{{WRAPPER}}  .clweb-flipbox__front' => 'border-color: {{VALUE}};',
@@ -153,7 +153,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 				'exclude' => [ 'color' ],
 				'fields_options' => [
 					'width' => [
-						'label' => __( 'Border Width', 'clweb-elementor-flipbox2' ),
+						'label' => __( 'Border Width', 'clweb-elementor-flipbox' ),
 					],
 				],
 				'selector' => '{{WRAPPER}} .clweb-flipbox__back, {{WRAPPER}} .clweb-flipbox__front',
@@ -163,7 +163,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->add_control(
 			'clweb_flipbox_border_radius',
 			[
-				'label' => __( 'Border Radius', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Border Radius', 'clweb-elementor-flipbox' ),
 				'type' => 'dimensions',
 				'size_units' => [ 'px', '%' ],
 				'default' => [
@@ -181,14 +181,14 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->start_controls_section(
 			'section_content',
 			[
-				'label' => __( 'Background & Colors', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Background & Colors', 'clweb-elementor-flipbox' ),
 			]
 		);
 
 		$this->add_control(
 			'clweb_flipbox_f_icon',
 			[
-				 'label' => __( 'Front Side Image Icon', 'clweb-elementor-flipbox2' ),
+				 'label' => __( 'Front Side Image Icon', 'clweb-elementor-flipbox' ),
 				 'type' => Controls_Manager::MEDIA
 			]
 		);
@@ -196,7 +196,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->add_control(
 			'clweb_flipbox_f_bg_img',
 			[
-				 'label' => __( 'Front Side Image background', 'clweb-elementor-flipbox2' ),
+				 'label' => __( 'Front Side Image background', 'clweb-elementor-flipbox' ),
 				 'type' => Controls_Manager::MEDIA,
 				 'dynamic' => [
 						'active' => true,
@@ -210,7 +210,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->add_control(
 			'clweb_flipbox_f_bg_color',
 			[
-				'label' => __( 'Front Side Background Color', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Front Side Background Color', 'clweb-elementor-flipbox' ),
 				'default' => '#52ffaf',
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
@@ -224,7 +224,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->add_control(
 		  'clweb_flipbox_b_icon',
 		  [
-		     'label' => __( 'Back Side Image Icon', 'clweb-elementor-flipbox2' ),
+		     'label' => __( 'Back Side Image Icon', 'clweb-elementor-flipbox' ),
 		     'type' => Controls_Manager::MEDIA
 		  ]
 		);
@@ -232,7 +232,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->add_control(
 		  'clweb_flipbox_b_bg_img',
 		  [
-		     'label' => __( 'Back Side Image background', 'clweb-elementor-flipbox2' ),
+		     'label' => __( 'Back Side Image background', 'clweb-elementor-flipbox' ),
 			 'type' => Controls_Manager::MEDIA,
 			 'dynamic' => [
 				'active' => true,
@@ -246,7 +246,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->add_control(
 		  'clweb_flipbox_b_bg_color',
 		  [
-		    'label' => __( 'Back Side Background Color', 'clweb-elementor-flipbox2' ),
+		    'label' => __( 'Back Side Background Color', 'clweb-elementor-flipbox' ),
 				'default' => '#ee8cff',
 		    'type' => Controls_Manager::COLOR,
 				'selectors' => [
@@ -264,7 +264,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->start_controls_section(
 			'section_texts',
 			[
-				'label' => __( 'Title & Contents', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Title & Contents', 'clweb-elementor-flipbox' ),
 			]
 		);
 
@@ -272,17 +272,17 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->add_control(
 			'title_tag',
 			[
-				'label' => __( 'Title HTML Tag', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Title HTML Tag', 'clweb-elementor-flipbox' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'h1'   => __( 'H1',   'clweb-elementor-flipbox2' ),
-					'h2'   => __( 'H2',   'clweb-elementor-flipbox2' ),
-					'h3'   => __( 'H3',   'clweb-elementor-flipbox2' ),
-					'h4'   => __( 'H4',   'clweb-elementor-flipbox2' ),
-					'h5'   => __( 'H5',   'clweb-elementor-flipbox2' ),
-					'h6'   => __( 'H6',   'clweb-elementor-flipbox2' ),
-					'div'  => __( 'div',  'clweb-elementor-flipbox2' ),
-					'span' => __( 'Span', 'clweb-elementor-flipbox2' ),
+					'h1'   => __( 'H1',   'clweb-elementor-flipbox' ),
+					'h2'   => __( 'H2',   'clweb-elementor-flipbox' ),
+					'h3'   => __( 'H3',   'clweb-elementor-flipbox' ),
+					'h4'   => __( 'H4',   'clweb-elementor-flipbox' ),
+					'h5'   => __( 'H5',   'clweb-elementor-flipbox' ),
+					'h6'   => __( 'H6',   'clweb-elementor-flipbox' ),
+					'div'  => __( 'div',  'clweb-elementor-flipbox' ),
+					'span' => __( 'Span', 'clweb-elementor-flipbox' ),
 				],
 				'default' => 'div',
 			]
@@ -291,12 +291,12 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->add_control(
 			'content_tag',
 			[
-				'label' => __( 'Description HTML Tag', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Description HTML Tag', 'clweb-elementor-flipbox' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'div'  => __( 'div',  'clweb-elementor-flipbox2' ),
-					'span' => __( 'Span', 'clweb-elementor-flipbox2' ),
-					'p'    => __( 'P',    'clweb-elementor-flipbox2' ),
+					'div'  => __( 'div',  'clweb-elementor-flipbox' ),
+					'span' => __( 'Span', 'clweb-elementor-flipbox' ),
+					'p'    => __( 'P',    'clweb-elementor-flipbox' ),
 				],
 				'default' => 'div',
 			]
@@ -306,51 +306,51 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->add_control(
 			'clweb_flipbox_f_title',
 			[
-				'label' => esc_html__( 'Front Title', 'clweb-elementor-flipbox2' ),
+				'label' => esc_html__( 'Front Title', 'clweb-elementor-flipbox' ),
 				'type' => Controls_Manager::TEXT,
 				'dynamic' => [
 					'active' => true,
 				],
-				'default'     => esc_html__( 'This is The Front Title', 'clweb-elementor-flipbox2' ),
+				'default'     => esc_html__( 'This is The Front Title', 'clweb-elementor-flipbox' ),
 			]
 		);
 
 		$this->add_control(
 			'clweb_flipbox_f_desc',
 			[
-				'label' => __( 'Front Description', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Front Description', 'clweb-elementor-flipbox' ),
 				'type' => Controls_Manager::TEXTAREA,
-				'default'     => __( 'Hover here', 'clweb-elementor-flipbox2' ),
+				'default'     => __( 'Hover here', 'clweb-elementor-flipbox' ),
 				'dynamic' => [
 					'active' => true,
 				],
-				'default'     => esc_html__( 'This is The Front Description', 'clweb-elementor-flipbox2' ),
-				'placeholder' => __( 'Please', 'clweb-elementor-flipbox2' ),
+				'default'     => esc_html__( 'This is The Front Description', 'clweb-elementor-flipbox' ),
+				'placeholder' => __( 'Please', 'clweb-elementor-flipbox' ),
 			]
 		);
 
 		$this->add_control(
 			'clweb_flipbox_b_title',
 			[
-				'label' => __( 'Back Title', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Back Title', 'clweb-elementor-flipbox' ),
 			'type' => Controls_Manager::TEXT,
 			'dynamic' => [
 				'active' => true,
 				],
-				'default'     => __( 'Back Title', 'clweb-elementor-flipbox2' ),
-			'placeholder' => __( 'Please enter the flipbox back title', 'clweb-elementor-flipbox2' ),
+				'default'     => __( 'Back Title', 'clweb-elementor-flipbox' ),
+			'placeholder' => __( 'Please enter the flipbox back title', 'clweb-elementor-flipbox' ),
 			]
 		);
 
 		$this->add_control(
 			'clweb_flipbox_b_desc',
 			[
-				'label' => __( 'Back Description', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Back Description', 'clweb-elementor-flipbox' ),
 			'type' => Controls_Manager::TEXTAREA,
 			'dynamic' => [
 				'active' => true,
 				],
-				'default'     => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultricies sem lorem, non ullamcorper neque tincidunt id.', 'clweb-elementor-flipbox2' ),
+				'default'     => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultricies sem lorem, non ullamcorper neque tincidunt id.', 'clweb-elementor-flipbox' ),
 			]
 		);
 
@@ -363,7 +363,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->start_controls_section(
 			'section_typo',
 			[
-				'label' => __( 'Typography', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Typography', 'clweb-elementor-flipbox' ),
 			]
 		);
 
@@ -372,7 +372,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'clweb_flipbox_f_title_typo',
-				'label' => __( 'Front Side Title Typography', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Front Side Title Typography', 'clweb-elementor-flipbox' ),
 				'selector' => '{{WRAPPER}} .clweb-flipbox__title-front',
 			]
 		);
@@ -382,7 +382,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'clweb_flipbox_f_desc_typo',
-				'label' => __( 'Front Side Description Typography', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Front Side Description Typography', 'clweb-elementor-flipbox' ),
 				'selector' => '{{WRAPPER}} .clweb-flipbox__desc-front',
 			]
 		);
@@ -392,7 +392,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'clweb_flipbox_b_title_typo',
-				'label' => __( 'Back Side Title Typography', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Back Side Title Typography', 'clweb-elementor-flipbox' ),
 				'selector' => '{{WRAPPER}} .clweb-flipbox__title-back',
 			]
 		);
@@ -403,7 +403,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'clweb_flipbox_b_desc_typo',
-				'label' => __( 'Back Side Description Typography', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Back Side Description Typography', 'clweb-elementor-flipbox' ),
 				'selector' => '{{WRAPPER}} .clweb-flipbox__desc-back',
 			]
 		);
@@ -413,7 +413,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'clweb_flipbox_f_button_typo',
-				'label' => __( 'Front Side Button Typography', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Front Side Button Typography', 'clweb-elementor-flipbox' ),
 				'selector' => '{{WRAPPER}} .clweb-flipbox__front-action a',
 			]
 		);
@@ -423,7 +423,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'clweb_flipbox_b_button_typo',
-				'label' => __( 'Back Side Button Typography', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Back Side Button Typography', 'clweb-elementor-flipbox' ),
 				'selector' => '{{WRAPPER}} .clweb-flipbox__action a',
 			]
 		);
@@ -437,14 +437,14 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->start_controls_section(
 			'section_color',
 			[
-				'label' => __( 'Text Colors', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Text Colors', 'clweb-elementor-flipbox' ),
 			]
 		);
 
 		$this->add_control(
 			'clweb_flipbox_f_title_color',
 			[
-				'label' => __( 'Front Side Title color', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Front Side Title color', 'clweb-elementor-flipbox' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .clweb-flipbox__title-front ' => 'color: {{VALUE}};',
@@ -455,7 +455,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->add_control(
 			'clweb_flipbox_f_desc_color',
 			[
-				'label' => __( 'Front Side Description color', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Front Side Description color', 'clweb-elementor-flipbox' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .clweb-flipbox__desc-front ' => 'color: {{VALUE}};',
@@ -466,7 +466,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->add_control(
 			'clweb_flipbox_b_title_color',
 			[
-				'label' => __( 'Back Side Title color', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Back Side Title color', 'clweb-elementor-flipbox' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .clweb-flipbox__title-back ' => 'color: {{VALUE}};',
@@ -477,7 +477,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->add_control(
 			'clweb_flipbox_b_desc_color',
 			[
-				'label' => __( 'Back Side Description color', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Back Side Description color', 'clweb-elementor-flipbox' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .clweb-flipbox__desc-back ' => 'color: {{VALUE}};',
@@ -496,17 +496,17 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->start_controls_section(
 			'front_side_section_button',
 			[
-				'label' => __( 'Front Side Button Settings', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Front Side Button Settings', 'clweb-elementor-flipbox' ),
 			]
 		);
 
 		$this->add_control(
 			'clweb_flipbox_show_front_btn',
 			[
-				'label' => __( 'Show Front Side Button?', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Show Front Side Button?', 'clweb-elementor-flipbox' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'Show', 'clweb-elementor-flipbox2' ),
-				'label_off' => __( 'Hide', 'clweb-elementor-flipbox2' ),
+				'label_on' => __( 'Show', 'clweb-elementor-flipbox' ),
+				'label_off' => __( 'Hide', 'clweb-elementor-flipbox' ),
 				'return_value' => 'yes',
 				'default' => 'yes',
 			]
@@ -515,10 +515,10 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->add_control(
 			'clweb_flipbox_f_btn_text',
 			[
-				'label' => __( 'Button Text', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Button Text', 'clweb-elementor-flipbox' ),
 				'type' => Controls_Manager::TEXT,
-				'default'     => __( 'Get Started', 'clweb-elementor-flipbox2' ),
-			'placeholder' => __( 'Please enter front flipbox button text', 'clweb-elementor-flipbox2' ),
+				'default'     => __( 'Get Started', 'clweb-elementor-flipbox' ),
+			'placeholder' => __( 'Please enter front flipbox button text', 'clweb-elementor-flipbox' ),
 			'condition' => [
 					'clweb_flipbox_show_front_btn' => 'yes',
 				],
@@ -528,7 +528,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->add_control(
 			'clweb_flipbox_f_btn_url',
 			[
-				'label' => __( 'Button URL', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Button URL', 'clweb-elementor-flipbox' ),
 				'type' => Controls_Manager::URL,
 				'default' => [
 					'url' => 'http://',
@@ -545,7 +545,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->add_control(
 			'clweb_flipbox_f_btn_bg_color',
 			[
-				'label' => __( 'Button Background Color', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Button Background Color', 'clweb-elementor-flipbox' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#f96161',
 				'condition' => [
@@ -561,7 +561,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->add_control(
 			'clweb_flipbox_f_btn_text_color',
 			[
-				'label' => __( 'Button Text Color', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Button Text Color', 'clweb-elementor-flipbox' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#ffffff',
 				'condition' => [
@@ -577,7 +577,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->add_control(
 			'clweb_flipbox_f_btn_bg_color_hover',
 			[
-				'label' => __( 'Button Background Color On Hover', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Button Background Color On Hover', 'clweb-elementor-flipbox' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#fcb935',
 				'condition' => [
@@ -593,7 +593,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->add_control(
 			'clweb_flipbox_f_btn_text_color_hover',
 			[
-				'label' => __( 'Button Text Color On Hover', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Button Text Color On Hover', 'clweb-elementor-flipbox' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#f7f7f7',
 				'condition' => [
@@ -608,7 +608,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->add_control(
 			'front_button_border_radius',
 			[
-				'label'      => esc_html__('Border Radius', 'clweb-elementor-flipbox2'),
+				'label'      => esc_html__('Border Radius', 'clweb-elementor-flipbox'),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['px'],
 				'range'      => [
@@ -627,7 +627,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->add_responsive_control(
 			'front_button_margin',
 			[
-				'label'      => esc_html__('Margin', 'clweb-elementor-flipbox2'),
+				'label'      => esc_html__('Margin', 'clweb-elementor-flipbox'),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => ['px', 'em'],
 				'selectors'  => [
@@ -639,7 +639,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->add_responsive_control(
 			'front_button_padding',
 			[
-				'label' => __( 'Button Padding', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Button Padding', 'clweb-elementor-flipbox' ),
 				'type' => 'dimensions',
 				'size_units' => [ 'px', 'em', '%', 'rem'],
 				'condition' => [
@@ -662,7 +662,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->start_controls_section(
 			'back_side_section_button',
 			[
-				'label' => __( 'Back Side Button Settings', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Back Side Button Settings', 'clweb-elementor-flipbox' ),
 			]
 		);
 
@@ -670,10 +670,10 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->add_control(
 			'clweb_flipbox_show_back_btn',
 			[
-				'label' => __( 'Show Back Side Button?', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Show Back Side Button?', 'clweb-elementor-flipbox' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'Show', 'clweb-elementor-flipbox2' ),
-				'label_off' => __( 'Hide', 'clweb-elementor-flipbox2' ),
+				'label_on' => __( 'Show', 'clweb-elementor-flipbox' ),
+				'label_off' => __( 'Hide', 'clweb-elementor-flipbox' ),
 				'return_value' => 'yes',
 				'default' => 'yes',
 			]
@@ -682,10 +682,10 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->add_control(
 			'clweb_flipbox_b_btn_text',
 			[
-				'label' => __( 'Button Text', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Button Text', 'clweb-elementor-flipbox' ),
 				'type' => Controls_Manager::TEXT,
-				'default'     => __( 'Get Started', 'clweb-elementor-flipbox2' ),
-			'placeholder' => __( 'Please enter the flipbox button text', 'clweb-elementor-flipbox2' ),
+				'default'     => __( 'Get Started', 'clweb-elementor-flipbox' ),
+			'placeholder' => __( 'Please enter the flipbox button text', 'clweb-elementor-flipbox' ),
 			'condition' => [
 					'clweb_flipbox_show_back_btn' => 'yes',
 				],
@@ -695,7 +695,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->add_control(
 			'clweb_flipbox_b_btn_url',
 			[
-				'label' => __( 'Button URL', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Button URL', 'clweb-elementor-flipbox' ),
 				'type' => Controls_Manager::URL,
 				'default' => [
 					'url' => 'http://',
@@ -712,7 +712,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->add_control(
 			'clweb_flipbox_b_btn_bg_color',
 			[
-				'label' => __( 'Button Background Color', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Button Background Color', 'clweb-elementor-flipbox' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#f96161',
 				'condition' => [
@@ -728,7 +728,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->add_control(
 			'clweb_flipbox_b_btn_text_color',
 			[
-				'label' => __( 'Button Text Color', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Button Text Color', 'clweb-elementor-flipbox' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#ffffff',
 				'condition' => [
@@ -744,7 +744,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->add_control(
 			'clweb_flipbox_b_btn_bg_color_hover',
 			[
-				'label' => __( 'Button Background Color On Hover', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Button Background Color On Hover', 'clweb-elementor-flipbox' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#fcb935',
 				'condition' => [
@@ -760,7 +760,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->add_control(
 			'clweb_flipbox_b_btn_text_color_hover',
 			[
-				'label' => __( 'Button Text Color On Hover', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Button Text Color On Hover', 'clweb-elementor-flipbox' ),
 				'type' => Controls_Manager::COLOR,
 				'default' => '#f7f7f7',
 				'condition' => [
@@ -775,7 +775,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->add_control(
 			'button_border_radius',
 			[
-				'label'      => esc_html__('Border Radius', 'clweb-elementor-flipbox2'),
+				'label'      => esc_html__('Border Radius', 'clweb-elementor-flipbox'),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['px'],
 				'range'      => [
@@ -794,7 +794,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->add_control(
 			'button_padding',
 			[
-				'label' => __( 'Button Padding', 'clweb-elementor-flipbox2' ),
+				'label' => __( 'Button Padding', 'clweb-elementor-flipbox' ),
 				'type' => 'dimensions',
 				'size_units' => [ 'px', 'em', '%', 'rem'],
 				'condition' => [
