@@ -1,0 +1,474 @@
+.clweb-flipbox {
+	width: 100%;
+	min-height: 250px;
+	height: 100%;
+}
+.clweb-flipbox__holder {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	min-height: inherit;
+}
+.clweb-flipbox__front,
+.clweb-flipbox__back {
+	height: 100%;
+	width: 100%;
+	display: -webkit-box;
+	display: flex;
+	-webkit-display: flex;
+	-ms-flex-align: center;
+	-moz-flex-align: center;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	align-items: center;
+	-webkit-align-items: center;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-size: cover;
+}
+.clweb-flipbox__content {
+	display: flex;
+	-webkit-display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+.clweb-flipbox__title-front,
+.clweb-flipbox__title-back {
+	padding: 20px;
+	text-align: center;
+}
+
+.clweb-flipbox__icon-front,
+.clweb-flipbox__icon-back {
+	padding: 20px;
+	text-align: center;
+}
+.clweb-flipbox__icon-front img,
+.clweb-flipbox__icon-back img {
+	max-width: 100%;
+	height: auto;
+	margin: 0 auto;
+}
+
+.clweb-flipbox__desc-front,
+.clweb-flipbox__desc-back {
+	padding: 0 20px;
+	text-align: center;
+	padding-bottom: 40px;
+}
+
+.clweb-flipbox__front-action {
+	margin-top: 20px;
+	margin-bottom: 15px;
+	text-align: center;
+}
+
+.clweb-flipbox__action {
+	margin-top: 20px;
+	margin-bottom: 15px;
+	text-align: center;
+}
+
+/*front side button*/
+.clweb-flipbox__front-btn {
+	padding: 12px 18px;
+	display: inline-block;
+	font-weight: bold;
+	font-size: 16px;
+	transition: color 0.1s ease-in-out, background 0.1s ease-in-out,
+		border 0.1s ease-in-out;
+	-webkit-transition: color 0.1s ease-in-out, background 0.1s ease-in-out,
+		border 0.1s ease-in-out;
+}
+
+/*back side button*/
+.clweb-flipbox__btn {
+	padding: 12px 18px;
+	display: inline-block;
+	font-weight: bold;
+	font-size: 16px;
+	transition: color 0.1s ease-in-out, background 0.1s ease-in-out,
+		border 0.1s ease-in-out;
+	-webkit-transition: color 0.1s ease-in-out, background 0.1s ease-in-out,
+		border 0.1s ease-in-out;
+}
+
+/*
+===================================================
+
+							FlipBox Effect
+
+===================================================
+*/
+.clweb-flipbox.flip-box-style {
+	-webkit-perspective: 1000;
+	-ms-perspective: 1000;
+	perspective: 1000;
+	-ms-transform: perspective(1000px);
+	-ms-transform-style: preserve-3d;
+}
+.flip-box-style .clweb-flipbox__holder {
+	-webkit-transition: 0.6s;
+	-ms-transition: 0.6s;
+	-moz-transition: 0.6s;
+	transition: 0.6s;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform: perspective(1000px);
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+.flip-box-style .clweb-flipbox__front,
+.flip-box-style .clweb-flipbox__back {
+	-webkit-transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.1s;
+	-webkit-transform-style: preserve-3d;
+	-webkit-transform: rotateY(0deg);
+	-moz-transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+	-moz-transform-style: preserve-3d;
+	-moz-transform: rotateY(0deg);
+	-o-transition: 0.6s;
+	-o-transform-style: preserve-3d;
+	-o-transform: rotateY(0deg);
+	-ms-transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+	-ms-transform-style: preserve-3d;
+	-ms-transform: rotateY(0deg);
+	transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.1s;
+	transform-style: preserve-3d;
+	transform: rotateY(0deg);
+}
+.flip-box-style .clweb-flipbox__front {
+	-webkit-transform: rotateY(0deg);
+	-ms-transform: rotateY(0deg);
+	z-index: 2;
+}
+.flip-box-style .clweb-flipbox__back {
+	-webkit-transform: rotateY(-180deg);
+	-moz-transform: rotateY(-180deg);
+	-o-transform: rotateY(-180deg);
+	-ms-transform: rotateY(-180deg);
+	transform: rotateY(-180deg);
+}
+/*
+....................................................
+							Horzintal
+....................................................
+*/
+.flip-box-style.clweb-flipbox--horizontal:hover .clweb-flipbox__holder {
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-ms-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+.flip-box-style.clweb-flipbox--horizontal.hover .clweb-flipbox__holder {
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-ms-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+/* START: Accommodating for IE */
+.ie .flip-box-style.clweb-flipbox--horizontal:hover .clweb-flipbox__back,
+.ie .flip-box-style.clweb-flipbox--horizontal.hover .clweb-flipbox__back {
+	-webkit-transform: rotateY(0deg);
+	-ms-transform: rotateY(0deg);
+	transform: rotateY(0deg);
+}
+.ie .flip-box-style.clweb-flipbox--horizontal:hover .clweb-flipbox__front,
+.ie .flip-box-style.clweb-flipbox--horizontal.hover .clweb-flipbox__front {
+	-webkit-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+.ie .flip-box-style.clweb-flipbox--horizontal:hover .clweb-flipbox__holder {
+	-webkit-transform: rotateY(0deg);
+	-ms-transform: rotateY(0deg);
+	transform: rotateY(0deg);
+}
+/* END: Accommodating for IE */
+
+/*
+....................................................
+							VERTICAL
+....................................................
+*/
+.flip-box-style.clweb-flipbox--vertical .clweb-flipbox {
+	position: relative;
+}
+.flip-box-style.clweb-flipbox--vertical .clweb-flipbox__back {
+	-webkit-transform: rotateX(180deg);
+	-moz-transform: rotateX(180deg);
+	-ms-transform: rotateX(180deg);
+	transform: rotateX(180deg);
+}
+.flip-box-style.clweb-flipbox--vertical .clweb-flipbox__holder {
+	-webkit-transform-origin: center;
+	-moz-transform-origin: center;
+	-ms-transform-origin: center;
+	transform-origin: center;
+}
+.flip-box-style.clweb-flipbox--vertical:hover .clweb-flipbox__holder {
+	-webkit-transform: rotateX(-180deg);
+	-ms-transform: rotateX(-180deg);
+	transform: rotateX(-180deg);
+}
+.flip-box-style.clweb-flipbox--vertical.hover .clweb-flipbox__holder {
+	-webkit-transform: rotateX(-180deg);
+	-ms-transform: rotateX(-180deg);
+	transform: rotateX(-180deg);
+}
+/* START: Accommodating for IE */
+.ie .flip-box-style.clweb-flipbox--vertical:hover .clweb-flipbox__back,
+.ie .flip-box-style.clweb-flipbox--vertical.hover .clweb-flipbox__back {
+	-webkit-transform: rotateX(0deg);
+	-ms-transform: rotateX(0deg);
+	transform: rotateX(0deg);
+}
+.ie .flip-box-style.clweb-flipbox--vertical:hover .clweb-flipbox__front,
+.ie .flip-box-style.clweb-flipbox--vertical.hover .clweb-flipbox__front {
+	-webkit-transform: rotateX(180deg);
+	transform: rotateX(180deg);
+}
+.ie .flip-box-style.clweb-flipbox--vertical:hover .clweb-flipbox__holder {
+	-webkit-transform: rotateX(0deg);
+	-ms-transform: rotateX(0deg);
+	transform: rotateX(0deg);
+}
+/* END: Accommodating for IE */
+
+/*
+===================================================
+
+							Fade Effect
+
+===================================================
+*/
+.clweb-flipbox.rotate-box-style {
+	overflow: hidden;
+}
+.clweb-flipbox.rotate-box-style .clweb-flipbox__front {
+	-webkit-transition: -webkit-transform 0.9s ease-in-out;
+	transition: -webkit-transform 0.9s ease-in-out;
+	-o-transition: transform 0.9s ease-in-out;
+	transition: transform 0.9s ease-in-out;
+	transition: transform 0.9s ease-in-out, -webkit-transform 0.9s ease-in-out;
+}
+.clweb-flipbox.rotate-box-style:hover .clweb-flipbox__front {
+	-webkit-transform: scale(3) rotate(30deg);
+	-ms-transform: scale(3) rotate(30deg);
+	transform: scale(3) rotate(30deg);
+}
+.clweb-flipbox.rotate-box-style .clweb-flipbox__back {
+	-webkit-transform: scale(1.5) rotate(30deg);
+	-ms-transform: scale(1.5) rotate(30deg);
+	transform: scale(1.5) rotate(30deg);
+	-webkit-transition: opacity 0.3s ease-in-out,
+		-webkit-transform 0.6s ease-in-out;
+	transition: opacity 0.3s ease-in-out, -webkit-transform 0.6s ease-in-out;
+	-o-transition: transform 0.6s ease-in-out, opacity 0.3s ease-in-out;
+	transition: transform 0.6s ease-in-out, opacity 0.3s ease-in-out;
+	transition: transform 0.6s ease-in-out, opacity 0.3s ease-in-out,
+		-webkit-transform 0.6s ease-in-out;
+	opacity: 0;
+}
+.clweb-flipbox.rotate-box-style:hover .clweb-flipbox__back {
+	-webkit-transform: scale(1) rotate(0deg);
+	-ms-transform: scale(1) rotate(0deg);
+	transform: scale(1) rotate(0deg);
+	opacity: 1;
+}
+
+/*
+===================================================
+
+							Zoom in Effect
+
+===================================================
+*/
+.clweb-flipbox.zoomin-box-style {
+	overflow: hidden;
+}
+.clweb-flipbox.zoomin-box-style .clweb-flipbox__front {
+	z-index: 3;
+	-webkit-transition: all 0.9s ease-in-out;
+	-o-transition: all 0.9s ease-in-out;
+	transition: all 0.9s ease-in-out;
+}
+.clweb-flipbox.zoomin-box-style .clweb-flipbox__back {
+	-webkit-transform: scale(1.5);
+	-ms-transform: scale(1.5);
+	transform: scale(1.5);
+	-webkit-transition: opacity 0.3s ease-in-out,
+		-webkit-transform 0.6s ease-in-out;
+	transition: opacity 0.3s ease-in-out, -webkit-transform 0.6s ease-in-out;
+	-o-transition: transform 0.6s ease-in-out, opacity 0.3s ease-in-out;
+	transition: transform 0.6s ease-in-out, opacity 0.3s ease-in-out;
+	transition: transform 0.6s ease-in-out, opacity 0.3s ease-in-out,
+		-webkit-transform 0.6s ease-in-out;
+	opacity: 0;
+	z-index: 1;
+}
+.clweb-flipbox.zoomin-box-style:hover .clweb-flipbox__front {
+	-webkit-transform: scale(1.2);
+	-ms-transform: scale(1.2);
+	transform: scale(1.2);
+	z-index: 1;
+}
+.clweb-flipbox.zoomin-box-style:hover .clweb-flipbox__back {
+	-webkit-transform: scale(1);
+	-ms-transform: scale(1);
+	transform: scale(1);
+	opacity: 1;
+	z-index: 3;
+}
+
+/*
+===================================================
+
+							Zoom Out Effect
+
+===================================================
+*/
+.clweb-flipbox.zoomout-box-style {
+	overflow: hidden;
+}
+.clweb-flipbox.zoomout-box-style .clweb-flipbox__front {
+	z-index: 3;
+	-webkit-transition: all 0.9s ease-in-out;
+	-o-transition: all 0.9s ease-in-out;
+	transition: all 0.9s ease-in-out;
+}
+.clweb-flipbox.zoomout-box-style .clweb-flipbox__back {
+	-webkit-transform: scale(0.5);
+	-ms-transform: scale(0.5);
+	transform: scale(0.5);
+	-webkit-transition: opacity 0.3s ease-in-out,
+		-webkit-transform 0.6s ease-in-out;
+	transition: opacity 0.3s ease-in-out, -webkit-transform 0.6s ease-in-out;
+	-o-transition: transform 0.6s ease-in-out, opacity 0.3s ease-in-out;
+	transition: transform 0.6s ease-in-out, opacity 0.3s ease-in-out;
+	transition: transform 0.6s ease-in-out, opacity 0.3s ease-in-out,
+		-webkit-transform 0.6s ease-in-out;
+	opacity: 0;
+	z-index: 1;
+}
+.clweb-flipbox.zoomout-box-style:hover .clweb-flipbox__front {
+	-webkit-transform: scale(0.6);
+	-ms-transform: scale(0.6);
+	transform: scale(0.6);
+	z-index: 1;
+}
+.clweb-flipbox.zoomout-box-style:hover .clweb-flipbox__back {
+	-webkit-transform: scale(1);
+	-ms-transform: scale(1);
+	transform: scale(1);
+	opacity: 1;
+	z-index: 3;
+}
+/*
+===================================================
+
+							Side Right Effect
+
+===================================================
+*/
+.clweb-flipbox.side-right-style {
+	overflow: hidden;
+}
+.clweb-flipbox.side-right-style .clweb-flipbox__back {
+	transform: translateX(-120%);
+	transition: all 0.9s ease-in-out;
+}
+.clweb-flipbox.side-right-style .clweb-flipbox__front {
+	z-index: 3;
+	-webkit-transition: all 0.9s ease-in-out;
+	-o-transition: all 0.9s ease-in-out;
+	transition: all 0.9s ease-in-out;
+}
+.clweb-flipbox.side-right-style:hover .clweb-flipbox__back {
+	transform: translateX(0) scale(1);
+}
+.clweb-flipbox.side-right-style:hover .clweb-flipbox__front {
+	transform: translateX(100%);
+}
+
+/*
+===================================================
+
+							Side Left Effect
+
+===================================================
+*/
+.clweb-flipbox.side-left-style {
+	overflow: hidden;
+}
+.clweb-flipbox.side-left-style .clweb-flipbox__back {
+	transform: translateX(120%);
+	transition: all 0.9s ease-in-out;
+}
+.clweb-flipbox.side-left-style .clweb-flipbox__front {
+	z-index: 3;
+	-webkit-transition: all 0.9s ease-in-out;
+	-o-transition: all 0.9s ease-in-out;
+	transition: all 0.9s ease-in-out;
+}
+.clweb-flipbox.side-left-style:hover .clweb-flipbox__back {
+	transform: translateX(0);
+}
+.clweb-flipbox.side-left-style:hover .clweb-flipbox__front {
+	transform: translateX(-100%);
+}
+/*
+===================================================
+
+							Slide Up
+
+===================================================
+*/
+.clweb-flipbox.to-top-style {
+	overflow: hidden;
+}
+.clweb-flipbox.to-top-style .clweb-flipbox__back {
+	transform: translateY(100%);
+	transition: all 0.4s ease-in-out;
+}
+.clweb-flipbox.to-top-style .clweb-flipbox__front {
+	z-index: 3;
+	-webkit-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+}
+.clweb-flipbox.to-top-style:hover .clweb-flipbox__back {
+	transform: translateY(0);
+}
+.clweb-flipbox.to-top-style:hover .clweb-flipbox__front {
+	transform: translateY(-100%);
+}
+/*
+===================================================
+
+							Slide Down
+
+===================================================
+*/
+.clweb-flipbox.to-bottom-style {
+	overflow: hidden;
+}
+.clweb-flipbox.to-bottom-style .clweb-flipbox__back {
+	transform: translateY(-100%);
+	transition: all 0.4s ease-in-out;
+}
+.clweb-flipbox.to-bottom-style .clweb-flipbox__front {
+	z-index: 3;
+	-webkit-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+}
+.clweb-flipbox.to-bottom-style:hover .clweb-flipbox__back {
+	transform: translateY(0);
+}
+.clweb-flipbox.to-bottom-style:hover .clweb-flipbox__front {
+	transform: translateY(100%);
+}
