@@ -3,6 +3,7 @@
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
+use Elementor\Group_Control_Border;
 
 
 class CLWeb_Elementor_Flipbox2 extends Widget_Base {
@@ -30,6 +31,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		return [ 'flipbox', 'flipboxes' ];
 	}
 
+	// register widget scripts and set them as widget dependencies
 	public function get_script_depends() {
 		wp_register_script('clweb-elementor-flipbox-script', plugins_url('assets/js/clweb-elementor-flipbox.js', __FILE__));
 		
@@ -193,6 +195,25 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 			]
 		);
 
+		$this->add_responsive_control(
+			'clweb_flipbox_image_resizer',
+			[
+				'label'     => esc_html__('Image Icon Resizer', 'clweb-elementor-flipbox'),
+				'type'      => Controls_Manager::SLIDER,
+				'default'   => [
+					'size' => '100',
+				],
+				'range'     => [
+					'px' => [
+						'max' => 500,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .clweb-flipbox__icon-front img, .clweb-flipbox__icon-back img' => 'width: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
 		$this->add_control(
 			'clweb_flipbox_f_bg_img',
 			[
@@ -206,6 +227,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
  				]
 			]
 		);
+
 
 		$this->add_control(
 			'clweb_flipbox_f_bg_color',
@@ -324,8 +346,7 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 				'dynamic' => [
 					'active' => true,
 				],
-				'default'     => esc_html__( 'This is The Front Description', 'clweb-elementor-flipbox' ),
-				'placeholder' => __( 'Please', 'clweb-elementor-flipbox' ),
+				'default'     => esc_html__( 'This is the front description', 'clweb-elementor-flipbox' ),
 			]
 		);
 
@@ -333,12 +354,11 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 			'clweb_flipbox_b_title',
 			[
 				'label' => __( 'Back Title', 'clweb-elementor-flipbox' ),
-			'type' => Controls_Manager::TEXT,
-			'dynamic' => [
-				'active' => true,
-				],
+				'type' => Controls_Manager::TEXT,
+				'dynamic' => [
+					'active' => true,
+					],
 				'default'     => __( 'Back Title', 'clweb-elementor-flipbox' ),
-			'placeholder' => __( 'Please enter the flipbox back title', 'clweb-elementor-flipbox' ),
 			]
 		);
 
@@ -346,11 +366,36 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 			'clweb_flipbox_b_desc',
 			[
 				'label' => __( 'Back Description', 'clweb-elementor-flipbox' ),
-			'type' => Controls_Manager::TEXTAREA,
-			'dynamic' => [
-				'active' => true,
+				'type' => Controls_Manager::TEXTAREA,
+				'dynamic' => [
+					'active' => true,
+					],
+				'default'     => __( 'This is the back description', 'clweb-elementor-flipbox' ),
+			]
+		);
+
+		$this->add_control(
+			'clweb_flipbox_content_alignment',
+			[
+				'label'        => esc_html__('Content Alignment', 'clweb-elementor-flipbox'),
+				'type'         => Controls_Manager::CHOOSE,
+				'label_block'  => true,
+				'options'      => [
+					'left'   => [
+						'title' => esc_html__('Left', 'clweb-elementor-flipbox'),
+						'icon'  => 'eicon-text-align-left',
+					],
+					'center' => [
+						'title' => esc_html__('Center', 'clweb-elementor-flipbox'),
+						'icon'  => 'eicon-text-align-center',
+					],
+					'right'  => [
+						'title' => esc_html__('Right', 'clweb-elementor-flipbox'),
+						'icon'  => 'eicon-text-align-right',
+					],
 				],
-				'default'     => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultricies sem lorem, non ullamcorper neque tincidunt id.', 'clweb-elementor-flipbox' ),
+				'default'      => 'center',
+				'prefix_class' => 'clweb-flipbox-content-align-',
 			]
 		);
 
@@ -604,6 +649,15 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 				]
 			]
 		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+					'name'     => 'button_border',
+					'label'    => esc_html__('Border Style', 'clweb-elementor-flipbox'),
+					'selector' => '{{WRAPPER}} .clweb-flipbox__front-action .clweb-flipbox__front-btn',
+			]
+	);
 
 		$this->add_control(
 			'front_button_border_radius',

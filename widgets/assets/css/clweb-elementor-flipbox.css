@@ -40,13 +40,11 @@
 .clweb-flipbox__title-front,
 .clweb-flipbox__title-back {
 	padding: 20px;
-	text-align: center;
 }
 
 .clweb-flipbox__icon-front,
 .clweb-flipbox__icon-back {
 	padding: 20px;
-	text-align: center;
 }
 .clweb-flipbox__icon-front img,
 .clweb-flipbox__icon-back img {
@@ -58,19 +56,27 @@
 .clweb-flipbox__desc-front,
 .clweb-flipbox__desc-back {
 	padding: 0 20px;
-	text-align: center;
 	padding-bottom: 40px;
 }
 
 .clweb-flipbox__front-action {
 	margin-top: 20px;
 	margin-bottom: 15px;
-	text-align: center;
 }
 
 .clweb-flipbox__action {
 	margin-top: 20px;
 	margin-bottom: 15px;
+}
+
+/* Text alignment */
+.clweb-flipbox-content-align-right {
+	text-align: right;
+}
+.clweb-flipbox-content-align-left {
+	text-align: left;
+}
+.clweb-flipbox-content-align-center {
 	text-align: center;
 }
 
@@ -155,7 +161,7 @@
 }
 /*
 ....................................................
-							Horzintal
+							Horizontal
 ....................................................
 */
 .flip-box-style.clweb-flipbox--horizontal:hover .clweb-flipbox__holder {
