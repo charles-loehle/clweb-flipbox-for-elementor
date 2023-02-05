@@ -384,7 +384,7 @@
 	overflow: hidden;
 }
 .clweb-flipbox.side-right-style .clweb-flipbox__back {
-	transform: translateX(-120%);
+	transform: translateX(-100%);
 	transition: all 0.9s ease-in-out;
 }
 .clweb-flipbox.side-right-style .clweb-flipbox__front {
@@ -411,7 +411,7 @@
 	overflow: hidden;
 }
 .clweb-flipbox.side-left-style .clweb-flipbox__back {
-	transform: translateX(120%);
+	transform: translateX(100%);
 	transition: all 0.9s ease-in-out;
 }
 .clweb-flipbox.side-left-style .clweb-flipbox__front {
