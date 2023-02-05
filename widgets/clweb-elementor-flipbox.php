@@ -101,12 +101,18 @@ class CLWeb_Elementor_Flipbox2 extends Widget_Base {
 		$this->add_control(
 			'clweb_flipbox_type-min-height',
 			[
-				'label' => esc_html__( 'Min Height', 'clweb-elementor-flipbox' ),
-				'type' => Controls_Manager::TEXT,
-				'default' => '500',
-				'description' => 'Unit in px',
+				'label' => esc_html__( 'Min Height (px)', 'clweb-elementor-flipbox' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => ['px'],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 1000,
+						'step' => 1,
+					]
+				],
 				'selectors' => [
-					'{{WRAPPER}} .clweb-flipbox__holder ' => 'height: {{VALUE}}px;',
+					'{{WRAPPER}} .clweb-flipbox__holder ' => 'height: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
